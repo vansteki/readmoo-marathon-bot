@@ -1,0 +1,30 @@
+{
+  "name": "readmoo-bot",
+  "version": "1.0.0",
+  "description": "readmoo bot for marathon - for education purpose only",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://codebase.local/dev/readmoo-bot"
+  },
+  "keywords": [
+    "Puppeteer",
+    "Chrome",
+    "Headless",
+    "Scrapping"
+  ],
+  "author": "vance",
+  "license": "MIT",
+  "dependencies": {
+    "command-line-args": "^5.1.1",
+    "puppeteer": "git+https://github.com/GoogleChrome/puppeteer.git",
+    "yaml": "^1.10.0"
+  }
+}

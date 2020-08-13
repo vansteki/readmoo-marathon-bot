@@ -1,0 +1,10 @@
+book:
+  url: https://new-read.readmoo.com/mooreader/210105298000101
+  read-type: rtl # could be rtl or ltr, rtl means right to left
+  page-flip-delay: 10000
+  page-max-flip-step: 50
+
+creds:
+  username: demo
+  password: password
+
