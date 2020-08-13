@@ -1,7 +1,7 @@
 {
-  "name": "readmoo-bot",
+  "name": "readmoo-marathon-bot",
   "version": "1.0.0",
-  "description": "readmoo bot for marathon - for education purpose only",
+  "description": "Readmoo bot for marathons - for education purpose only",
   "main": "app.js",
   "directories": {
     "test": "test"
