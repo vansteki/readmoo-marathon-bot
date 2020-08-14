@@ -51,7 +51,7 @@ async function run () {
   // try using  old profile
   // select a book, simulate flow as real as possible
   await page.goto(opts.book)
-  console.log(Date(), await page.title())
+  console.log(Date(), `Book: 《${await page.title()}》`)
 
   page.on('dialog', async dialog => {
     console.log(Date(), '同步進度視窗彈出:')
