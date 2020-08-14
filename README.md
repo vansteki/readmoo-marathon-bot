@@ -38,3 +38,11 @@ if you don't use some options in cli, it will use options in `config.yml`
 ```
 node app -b https://new-read.readmoo.com/mooreader/<book id>
 ```
+
+## Using Container
+
+in branch `docker`, put all your books url in `books.txt`, then build image, after build image, run:
+
+```
+npm run containers
+```
