@@ -4,6 +4,8 @@ const pageFlipDelay = opts['page-flip-delay']
 const pageMaxFlipStep = opts['page-max-flip-step']
 console.log('opts:', opts)
 
+console.log('test cacchhhhhhhe')
+
 async function run () {
   const browser = await puppeteer.launch({
     headless: true,

@@ -14,6 +14,6 @@ RUN apk add --no-cache git nodejs npm chromium nss freetype freetype-dev harfbuz
 
 COPY . ./
 
-CMD ["npm", "start"]
-
 ENTRYPOINT ["node", "app"]
+
+CMD []
