@@ -45,7 +45,7 @@ checkout to branch `docker`, put all your books url in `books.txt`, then build i
 
 build image and run container
 ```
-docker build -t <image_tag> . && docker run -t -i --rm <image_tag> -b <bookurl>
+docker build -t <image_tag> . && docker run -d --rm <image_tag> -b <bookurl>
 ```
 
 if you have your own `books.txt`, then you can use this npm command, it will run for all your books
