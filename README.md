@@ -1,4 +1,4 @@
-# readmoo-bot
+# readmoo-marathon-bot
 
 A bot for readmoo marathons.
 
