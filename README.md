@@ -41,8 +41,21 @@ node app -b https://new-read.readmoo.com/mooreader/<book id>
 
 ## Using Container
 
-in branch `docker`, put all your books url in `books.txt`, then build image, after build image, run:
+checkout to branch `docker`, put all your books url in `books.txt`, then build image, after build image and run container
+
+build image and run container
+```
+docker build -t <image_tag> . && docker run -t -i --rm <image_tag> -b <bookurl>
+```
+
+if you have your own `books.txt`, then you can use this npm command, it will run for all your books
 
 ```
 npm run containers
+```
+
+it is equal to this command
+
+```
+cat books.txt | xargs -I book docker run -d --rm <image_tag> -b book
 ```
