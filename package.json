@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "containers": "cat books.txt | xargs -I book docker run -d --rm vansteki/readmoo-bot:1.0 -b book",
     "start": "node app"
   },
   "repository": {
