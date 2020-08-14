@@ -25,6 +25,7 @@
   "dependencies": {
     "command-line-args": "^5.1.1",
     "puppeteer": "git+https://github.com/GoogleChrome/puppeteer.git",
+    "puppeteer-core": "^5.2.1",
     "yaml": "^1.10.0"
   }
 }
