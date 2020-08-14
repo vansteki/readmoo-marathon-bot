@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer')
+const puppeteer = require('puppeteer-core')
 const opts = require('./options.js')
 const pageFlipDelay = opts['page-flip-delay']
 const pageMaxFlipStep = opts['page-max-flip-step']
@@ -6,9 +6,11 @@ console.log('opts:', opts)
 
 async function run () {
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     defaultViewport: null,
+    executablePath: "/usr/bin/chromium-browser",
     args: [
+      '--no-sandbox'
       // '--user-data-dir=/var/tmp/readmoo'
     ]
   })
@@ -49,6 +51,7 @@ async function run () {
   // try using  old profile
   // select a book, simulate flow as real as possible
   await page.goto(opts.book)
+  console.log(Date(), await page.title())
 
   page.on('dialog', async dialog => {
     console.log(Date(), '同步進度視窗彈出:')
@@ -61,7 +64,7 @@ async function run () {
   await page.goto(frameSrc)
 
   console.log(Date(), 'Connect to book frame')
-  await page.waitForTimeout(3000)
+  await page.waitFor(3000)
 
   let isRightToLEft = await page.evaluate(`ReadiumSDK.reader.getCurrentView().getPaginationInfo().isRightToLeft`)
   console.log(Date(), '取得閱讀模式: isRightToLeft:', isRightToLEft)
@@ -84,7 +87,7 @@ async function run () {
   async function left (page) {
     await page.evaluate(`$('.rest-alert-timer-modal .btn').click()`)
     await page.evaluate(`window.MooReaderApp.openPageLeft()`)
-    await page.waitForTimeout(pageFlipDelay)
+    await page.waitFor(pageFlipDelay)
   }
 
   await page.waitForSelector('#reading-area').then(() => {
@@ -96,23 +99,23 @@ async function run () {
           for (let i = 0; i < pageMaxFlipStep; i++) {
             console.log(Date(), 'Flip Left', i)
             await left(page)
-            await page.waitForTimeout(pageFlipDelay)
+            await page.waitFor(pageFlipDelay)
           }
           for (let i = 0; i < pageMaxFlipStep; i++) {
             console.log(Date(), 'Flip Right', i)
             await right(page)
-            await page.waitForTimeout(pageFlipDelay)
+            await page.waitFor(pageFlipDelay)
           }
         } else {
           for (let i = 0; i < pageMaxFlipStep; i++) {
             console.log(Date(), 'Flip Right', i)
             await right(page)
-            await page.waitForTimeout(pageFlipDelay)
+            await page.waitFor(pageFlipDelay)
           }
           for (let i = 0; i < pageMaxFlipStep; i++) {
             console.log(Date(), 'Flip Left', i)
             await left(page)
-            await page.waitForTimeout(pageFlipDelay)
+            await page.waitFor(pageFlipDelay)
           }
         }
       }
