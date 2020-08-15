@@ -5,10 +5,10 @@ A bot for readmoo marathons.
 # Setup
 
 ```
-npm i
+npm run setup
 ```
 
-you could set options in config by editing `config.yml`.
+then you could set options in config by editing `config.yml`.
 
 ```
 book:
