@@ -9,7 +9,7 @@
   "scripts": {
     "setup": "cp config.template.yml config.yml && npm i",
     "start": "node app",
-    "start:all": "cat books.txt | xargs -I book node app -b book",
+    "start:all": "cat books.txt | xargs -P 10 -I book node app -b book",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
