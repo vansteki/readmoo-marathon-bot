@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "containers": "cat books.txt | xargs -I book docker run -d --rm vansteki/readmoo-bot:1.0 -b book",
+    "docker:build": "docker build -t vansteki/readmoo-bot:latest .",
+    "docker:containers": "cat books.txt | xargs -I book docker run -d --rm vansteki/readmoo-bot:latest -b book",
     "start": "node app"
   },
   "repository": {
@@ -25,8 +26,10 @@
   "license": "MIT",
   "dependencies": {
     "command-line-args": "^5.1.1",
-    "puppeteer": "git+https://github.com/GoogleChrome/puppeteer.git",
     "puppeteer-core": "^5.2.1",
     "yaml": "^1.10.0"
+  },
+  "devDependencies": {
+    "puppeteer": "^5.2.1"
   }
 }
