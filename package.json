@@ -7,12 +7,12 @@
     "test": "test"
   },
   "scripts": {
-    "setup": "cp config.template.yml config.yml && npm i",
-    "start:all": "cat books.txt | xargs -P 10 -I book node app -b book",
+    "setup": "cp config.template.yml config.yml && npm i && npm run docker:build",
     "docker:build": "docker build -t vansteki/readmoo-bot:latest .",
     "docker:container": "docker run -d --rm vansteki/readmoo-bot:latest -b ",
     "docker:containers": "cat books.txt | xargs -I book docker run -d --rm vansteki/readmoo-bot:latest -b book",
-    "start": "node app"
+    "start": "node app",
+    "start:all": "cat books.txt | xargs -P 10 -I book node app -b book"
   },
   "repository": {
     "type": "git",
