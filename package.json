@@ -9,6 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker:build": "docker build -t vansteki/readmoo-bot:latest .",
+    "docker:container": "docker run -d --rm vansteki/readmoo-bot:latest -b ",
     "docker:containers": "cat books.txt | xargs -I book docker run -d --rm vansteki/readmoo-bot:latest -b book",
     "start": "node app"
   },
