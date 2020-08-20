@@ -8,7 +8,7 @@
   },
   "scripts": {
     "setup": "cp config.template.yml config.yml && npm i && npm run docker:build",
-    "docker:build": "docker build -t vansteki/readmoo-bot:latest .",
+    "docker:build": "docker build --no-cache -t vansteki/readmoo-bot:latest .",
     "docker:container": "docker run -t --rm vansteki/readmoo-bot:latest -b ",
     "docker:containers": "cat books.txt | xargs -I book docker run -d --rm vansteki/readmoo-bot:latest -b book",
     "start": "node app",
