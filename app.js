@@ -1,10 +1,10 @@
 const os = require('os')
-// const puppeteerCore = 
-const puppeteer = os.platform === 'linux'? require('puppeteer-core') : require('puppeteer')
+console.log('os:', os.platform())
+const puppeteer = os.platform() === 'linux'? require('puppeteer-core') : require('puppeteer')
 const opts = require('./options.js')
 const pageFlipDelay = opts['page-flip-delay']
 const pageMaxFlipStep = opts['page-max-flip-step']
-console.log('opts:', opts)
+console.log('final cmd opts:', opts)
 
 async function run () {
   let launchOpts = {
@@ -12,14 +12,14 @@ async function run () {
     defaultViewport: null,
     args: []
   }
-  let browser = {}
 
-  if (os.platform === 'linux') {
+  if (os.platform() === 'linux') {
     launchOpts.headless = true
     launchOpts["executablePath"] = "/usr/bin/chromium-browser"
     launchOpts.args.push('--no-sandbox')
   }
-  browser = await puppeteer.launch(launchOpts)
+  console.log('final browser launch opts:', launchOpts)
+  const browser = await puppeteer.launch(launchOpts)
 
   const page = await browser.newPage()
 
