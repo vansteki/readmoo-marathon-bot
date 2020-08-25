@@ -1,7 +1,7 @@
 book:
   url: https://new-read.readmoo.com/mooreader/210105298000101
-  page-flip-delay: 1000
-  page-max-flip-step: 50
+  page-flip-delay: 10000
+  page-max-flip-step: 100
 
 creds:
   username:
