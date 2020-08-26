@@ -10,7 +10,8 @@ WORKDIR /app
 
 COPY package.json ./
 
-RUN apk add git nodejs npm chromium nss freetype freetype-dev harfbuzz ca-certificates ttf-freefont && npm i --production
+RUN apk add tzdata git nodejs npm chromium nss freetype freetype-dev harfbuzz ca-certificates ttf-freefont && npm i --production
+RUN cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo "Asia/Taipei" > /etc/timezone
 
 COPY . ./
 
