@@ -73,8 +73,8 @@ async function run () {
   console.log(Date(), 'Connect to book frame')
   await page.waitFor(3000)
 
-  let isRightToLEft = await page.evaluate(`ReadiumSDK.reader.getCurrentView().getPaginationInfo().isRightToLeft`)
-  console.log(Date(), '取得閱讀模式: isRightToLeft:', isRightToLEft)
+  let isRightToLeft = await page.evaluate(`ReadiumSDK.reader.getCurrentView().getPaginationInfo().isRightToLeft`)
+  console.log(Date(), '取得閱讀模式: isRightToLeft:', isRightToLeft)
 
 
   await page.waitForSelector('#tutorial-content').then(() => {
@@ -102,7 +102,7 @@ async function run () {
       console.log(Date(), '開始閱讀')
       while (1) {
 
-        if (isRightToLEft) {
+        if (isRightToLeft) {
           for (let i = 0; i < pageMaxFlipStep; i++) {
             console.log(Date(), 'Flip Left', i)
             await left(page)
