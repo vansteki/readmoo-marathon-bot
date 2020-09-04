@@ -15,6 +15,6 @@ RUN cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo "Asia/Taipei" > /e
 
 COPY . ./
 
-ENTRYPOINT ["node", "app"]
+ENTRYPOINT ["node", "--unhandled-rejections=strict", "app"]
 
 CMD []
