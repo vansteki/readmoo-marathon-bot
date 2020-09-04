@@ -15,6 +15,8 @@ RUN cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo "Asia/Taipei" > /e
 
 COPY . ./
 
+HEALTHCHECK --interval=10s --timeout=3s CMD [ $(cat ./error.log | wc -c) -eq 0 ] || exit 1
+
 ENTRYPOINT ["node", "--unhandled-rejections=strict", "app"]
 
 CMD []
