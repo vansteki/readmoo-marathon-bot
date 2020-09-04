@@ -14,7 +14,7 @@ then you could set options in config by editing `config.yml`.
 book:
   url: https://new-read.readmoo.com/mooreader/210105298000101
   page-flip-delay: 10000
-  page-max-flip-step: 50
+  page-max-flip-step: 1000
 
 creds:
   username: <readmoo user email>
@@ -47,17 +47,17 @@ Note: run `npm run setup` also build image for you
 
 build image and run container
 ```
-docker build -t <image_tag> . && docker run -d --rm <image_tag> -b <bookurl>
+docker build -t <image:tag> . && docker run -d --rm <image:tag> -b <bookurl>
 ```
 
 run a container, give it a book url as parameter:
 ```
-npm run docker:container -- <book url>
+npm run docker:container -- -b <book url>
 ```
 
 e.g
 ```
-npm run docker:container -- https://new-read.readmoo.com/mooreader/210139757000101
+npm run docker:container -- -b https://new-read.readmoo.com/mooreader/210139757000101
 ```
 
 if you have your own `books.txt`, then you can use this npm command, it will run for all your books
@@ -69,5 +69,5 @@ npm run docker:containers
 it is equal to this command
 
 ```
-cat books.txt | xargs -I book docker run -d --rm <image_tag> -b book
+cat books.txt | xargs -I book bash -c '{ docker run -d --restart on-failure <image:tag> -b book; sleep 3; }'
 ```
