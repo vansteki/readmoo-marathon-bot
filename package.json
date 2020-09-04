@@ -9,7 +9,7 @@
   "scripts": {
     "setup": "cp config.template.yml config.yml && npm i && npm run docker:build",
     "docker:build": "docker build --no-cache -t vansteki/readmoo-bot:latest .",
-    "docker:container": "docker run -d --restart on-failure vansteki/readmoo-bot:latest ",
+    "docker:container": "docker run -d --restart always vansteki/readmoo-bot:latest ",
     "docker:containers": "cat books.txt | xargs -I book bash -c '{ docker run -d --restart on-failure vansteki/readmoo-bot:latest -b book; sleep 3; }' ",
     "start": "node --unhandled-rejections=strict app",
     "start:all": "cat books.txt | xargs -P 10 -I book node app -b book"
