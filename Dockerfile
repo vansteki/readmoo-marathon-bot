@@ -1,5 +1,7 @@
 FROM alpine:edge
 
+LABEL name="readmoo-marathon-bot"
+
 ARG book
 ARG page-flip-delay
 ARG page-max-flip-step
