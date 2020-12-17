@@ -6,6 +6,9 @@
   "directories": {
     "test": "test"
   },
+  "engines": {
+    "node": ">=15.x"
+  },
   "scripts": {
     "setup": "cp config.template.yml config.yml && npm i",
     "docker:build": "docker build -t vansteki/readmoo-bot:latest .",
