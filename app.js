@@ -41,9 +41,9 @@ async function run () {
     await page.goto('https://member.readmoo.com/login/')
     await page.screenshot({path: `screenshots/${arguments.callee.name}.png`})
 
-    const USERNAME_SELECTOR = '#email'
-    const PASSWORD_SELECTOR = '#password'
-    const SIGNIN_SELECTOR = '#sign-in'
+    const USERNAME_SELECTOR = '#login-form input[name=email]'
+    const PASSWORD_SELECTOR = '#login-form input[name=password]'
+    const SIGNIN_SELECTOR = '#sign-in-btn'
 
     await page.click(USERNAME_SELECTOR)
     await page.keyboard.type(opts.username)
