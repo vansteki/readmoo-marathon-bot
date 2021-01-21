@@ -6,7 +6,7 @@ A bot for readmoo marathons.
 
 Node >= 15.x or lts/erbium (v12.20.0)
 
-you can also using `nvm use`
+you can also use `nvm use` to apply the node version (v12.20.0)
 
 Also, you may need install a browser on your dev machine or server (headless browser, driver etc...)
 
