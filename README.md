@@ -4,11 +4,9 @@ A bot for readmoo marathons.
 
 # Requirement
 
-Node >= 15.x
+Node >= 15.x or lts/erbium (v12.20.0)
 
-or
-
-Node >= 10.x <= 14.x
+you can also using `nvm use`
 
 Also, you may need install a browser on your dev machine or server (headless browser, driver etc...)
 
