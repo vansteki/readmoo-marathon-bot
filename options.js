@@ -23,7 +23,7 @@ const yamlOpts = {
 }
 
 let options = Object.assign({}, yamlOpts, cmdOpts)
-console.log('merged opts:', options)
+// console.log('merged opts:', options)
 
 // TODO options validation
 // TODO puppeteer viewport

@@ -5,7 +5,7 @@ const puppeteer = os.platform() === 'linux' ? require('puppeteer-core') : requir
 const opts = require('./options.js')
 const pageFlipDelay = opts['page-flip-delay']
 const pageMaxFlipStep = opts['page-max-flip-step']
-console.log('final cmd opts:', opts)
+// console.log('final cmd opts:', opts)
 
 async function run () {
   try {
@@ -21,7 +21,7 @@ async function run () {
       launchOpts['executablePath'] = '/usr/bin/chromium-browser'
       launchOpts.args.push('--no-sandbox')
     }
-    console.log('final browser launch opts:', launchOpts)
+    // console.log('final browser launch opts:', launchOpts)
     const browser = await puppeteer.launch(launchOpts)
     const page = await browser.newPage()
 

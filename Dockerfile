@@ -1,4 +1,4 @@
-FROM alpine:edge AS base
+FROM alpine:3.12.4 AS base
 
 RUN apk add tzdata git nodejs npm chromium nss freetype freetype-dev harfbuzz ca-certificates ttf-freefont
 RUN cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo "Asia/Taipei" > /etc/timezone
