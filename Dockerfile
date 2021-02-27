@@ -1,5 +1,12 @@
-FROM alpine:edge
+FROM alpine:edge AS base
 
+RUN apk add tzdata git nodejs npm chromium nss freetype freetype-dev harfbuzz ca-certificates ttf-freefont
+RUN cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo "Asia/Taipei" > /etc/timezone
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm i --production
+
+FROM base
 LABEL name="readmoo-marathon-bot"
 
 ARG book
@@ -9,12 +16,6 @@ ARG username
 ARG password
 
 WORKDIR /app
-
-COPY package.json ./
-
-RUN apk add tzdata git nodejs npm chromium nss freetype freetype-dev harfbuzz ca-certificates ttf-freefont && npm i --production
-RUN cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime && echo "Asia/Taipei" > /etc/timezone
-
 COPY . ./
 
 HEALTHCHECK --interval=10s --timeout=3s CMD [ $(cat ./error.log | wc -c) -eq 0 ] || exit 1
